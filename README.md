@@ -27,6 +27,6 @@ In addition, the application contains unit and end-to-end tests using Fastify. F
 
 - [ ] The user who wants to adopt a pet should contact the organization via Whatsapp
 
-- [ ] All the filters for pets are optional
+- [ ] All the filters for pets, except for the city, are optional
 
 - [ ] An organization that logs in can access the application as and admin
