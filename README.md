@@ -1,8 +1,7 @@
 ## Find a Friend API
 
 This project consists in an API for pet adoption developed using Node.js, TypeScript, PrismaORM and Docker.
-In addition, the application contains unit and end-to-end tests using Fastify and implements role based
-access control (RBAC). Furthermore, a front-end will be developed for this application in the future using React.
+In addition, the application contains unit and end-to-end tests using Fastify. Furthermore, a front-end will be developed for this application in the future using React.
 
 ### Functional Requirements
 
