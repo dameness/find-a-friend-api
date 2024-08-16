@@ -6,22 +6,26 @@
     "dev": "tsx watch src/server.ts",
     "start:dist": "node dist/server.js",
     "build": "tsup src",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "vitest run --dir src/use-cases"
   },
   "author": "",
   "license": "ISC",
   "description": "",
   "devDependencies": {
+    "@types/bcryptjs": "2.4.6",
     "@types/node": "22.3.0",
     "prisma": "5.18.0",
     "tsup": "8.2.4",
     "tsx": "4.17.0",
-    "typescript": "5.5.4"
+    "typescript": "5.5.4",
+    "vite-tsconfig-paths": "5.0.1",
+    "vitest": "2.0.5"
   },
   "dependencies": {
     "@fastify/cookie": "9.3.1",
     "@fastify/jwt": "8.0.1",
     "@prisma/client": "5.18.0",
+    "bcryptjs": "2.4.3",
     "dotenv": "16.4.5",
     "fastify": "4.28.1",
     "zod": "3.23.8"
