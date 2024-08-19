@@ -5,10 +5,11 @@ import { randomUUID } from 'node:crypto';
 export class InMemoryOrganizationsRepository
   implements OrganizationsRepository
 {
-  private organizations: Organization[] = [];
+  public organizations: Organization[] = [];
 
   async create(data: Prisma.OrganizationCreateInput) {
     const {
+      id,
       city,
       email,
       latitude,
@@ -23,7 +24,7 @@ export class InMemoryOrganizationsRepository
     } = data;
 
     const organization: Organization = {
-      id: randomUUID(),
+      id: id ?? randomUUID(),
       latitude: new Prisma.Decimal(latitude.toString()),
       longitude: new Prisma.Decimal(longitude.toString()),
       city,
@@ -40,6 +41,11 @@ export class InMemoryOrganizationsRepository
     this.organizations.push(organization);
 
     return organization;
+  }
+
+  async findById(id: string) {
+    const organization = this.organizations.find((it) => it.id === id);
+    return organization || null;
   }
 
   async findByEmail(email: string) {
