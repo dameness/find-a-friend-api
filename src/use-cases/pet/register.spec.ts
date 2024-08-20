@@ -18,7 +18,7 @@ describe('Register Pet Use Case', () => {
   });
 
   it('should be able to register a pet', async () => {
-    organizationsRepository.organizations.push({
+    await organizationsRepository.create({
       id: 'org-01',
       email: 'mail@mail.com',
       name: 'name-01',
@@ -42,7 +42,7 @@ describe('Register Pet Use Case', () => {
   });
 
   it('should not be able to register a pet with unexistent organization', async () => {
-    organizationsRepository.organizations.push({
+    await organizationsRepository.create({
       id: 'org-01',
       email: 'mail@mail.com',
       name: 'name-01',
