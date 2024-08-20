@@ -20,8 +20,13 @@ export class PrismaPetsRepository implements PetRepository {
   }
 
   async filter(filters: PetFilters) {
+    const petsFilters = { ...filters, city: undefined };
+
     const pets = await prisma.pet.findMany({
-      where: filters,
+      where: {
+        organization: { city: filters.city },
+        ...petsFilters,
+      },
     });
 
     return pets;
