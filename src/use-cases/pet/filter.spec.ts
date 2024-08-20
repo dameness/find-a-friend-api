@@ -1,19 +1,19 @@
 import { InMemoryPetsRepository } from '@/repos/in-memory/in-memory-pets-repository';
 import { beforeEach, describe, expect, it } from 'vitest';
-import { filterPetsUseCase } from './filter';
+import { FilterPetsUseCase } from './filter';
 import { InMemoryOrganizationsRepository } from '@/repos/in-memory/in-memory-organizations-repository';
 import { Decimal } from '@prisma/client/runtime/library';
 import { hash } from 'bcryptjs';
 
 let petsRepository: InMemoryPetsRepository;
 let organizationsRepository: InMemoryOrganizationsRepository;
-let sut: filterPetsUseCase;
+let sut: FilterPetsUseCase;
 
 describe('Filter Pets Use Case', () => {
   beforeEach(() => {
     organizationsRepository = new InMemoryOrganizationsRepository();
     petsRepository = new InMemoryPetsRepository(organizationsRepository);
-    sut = new filterPetsUseCase(petsRepository);
+    sut = new FilterPetsUseCase(petsRepository);
   });
 
   it('should be able to filter pets by city', async () => {
