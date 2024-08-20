@@ -1,20 +1,20 @@
 import { PetFilters, PetRepository } from '@/models/pet-repository';
 import { Pet } from '@prisma/client';
 
-interface filterPetsUseCaseRequest {
+interface FilterPetsUseCaseRequest {
   filters: PetFilters;
 }
 
-interface filterPetsUseCaseResponse {
+interface FilterPetsUseCaseResponse {
   pets: Pet[];
 }
 
-export class filterPetsUseCase {
+export class FilterPetsUseCase {
   constructor(private petsRepository: PetRepository) {}
 
   async execute({
     filters,
-  }: filterPetsUseCaseRequest): Promise<filterPetsUseCaseResponse> {
+  }: FilterPetsUseCaseRequest): Promise<FilterPetsUseCaseResponse> {
     const pets = await this.petsRepository.filter(filters);
 
     return { pets };
