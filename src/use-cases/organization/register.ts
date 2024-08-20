@@ -1,7 +1,7 @@
 import { OrganizationAlreadyExistsError } from '@/errors/organization-already-exists-error';
 import { OrganizationsRepository } from '@/models/organization-repository';
 import { Organization } from '@prisma/client';
-import { hash } from 'bcryptjs';
+import bcrypt from 'bcryptjs';
 
 interface RegisterOrganizationUseCaseRequest {
   name: string;
@@ -26,15 +26,17 @@ export class RegisterOrganizationUseCase {
   async execute(
     data: RegisterOrganizationUseCaseRequest
   ): Promise<RegisterOrganizationUseCaseResponse> {
-    const password_hash = await hash(data.password, 6);
+    const password_hash = await bcrypt.hash(data.password, 6);
 
     const emailAlreadyRegistered =
       await this.organizationsRepository.findByEmail(data.email);
 
     if (emailAlreadyRegistered) throw new OrganizationAlreadyExistsError();
 
+    const newData = { ...data, password: undefined };
+
     const organization = await this.organizationsRepository.create({
-      ...data,
+      ...newData,
       password_hash,
     });
 

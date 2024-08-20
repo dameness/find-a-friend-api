@@ -1,7 +1,7 @@
 import { InvalidCredentialsError } from '@/errors/invalid-credentials-error';
 import { OrganizationsRepository } from '@/models/organization-repository';
 import { Organization } from '@prisma/client';
-import { compare } from 'bcryptjs';
+import bcrypt from 'bcryptjs';
 
 interface AuthenticateUseCaseRequest {
   email: string;
@@ -23,7 +23,10 @@ export class AuthenticateUseCase {
 
     if (!organization) throw new InvalidCredentialsError();
 
-    const passwordMatches = await compare(password, organization.password_hash);
+    const passwordMatches = await bcrypt.compare(
+      password,
+      organization.password_hash
+    );
 
     if (!passwordMatches) throw new InvalidCredentialsError();
 
