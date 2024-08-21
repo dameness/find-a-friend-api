@@ -30,4 +30,4 @@ Furthermore, a front-end will be developed for this application in the future us
 
 - [x] All the filters for pets, except for the city, are optional
 
-- [x] An organization that logs in can access the application as and admin
+- [x] An organization that logs in can access the application as an admin
