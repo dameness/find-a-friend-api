@@ -4,7 +4,7 @@ export default defineConfig({
   test: {
     globals: true,
     reporters: 'verbose',
-    //environmentMatchGlobs: [['src/http/controllers/**', 'prisma']],
+    environmentMatchGlobs: [['src/http/controllers/**', 'prisma']],
     dir: 'src',
   },
   plugins: [tsconfigPaths()],
