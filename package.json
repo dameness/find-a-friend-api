@@ -12,7 +12,8 @@
     "test:create-prisma-environment": "npm link ./prisma/vitest-environment-prisma",
     "test:install-prisma-environment": "npm link vitest-environment-prisma",
     "pretest:e2e": "npm-run-all test:create-prisma-environment test:install-prisma-environment",
-    "test:e2e": "vitest watch --dir src/http"
+    "test:e2e": "vitest run --dir src/http",
+    "test:e2e:watch": "vitest watch --dir src/http"
   },
   "author": "",
   "license": "ISC",
