@@ -13,5 +13,12 @@ jobs:
         with:
           node-version: 18
           cache: 'yarn'
-      - run: npm ci
+      - run: |
+          if [ -e yarn.lock ]; then
+          yarn install --frozen-lockfile
+          elif [ -e package-lock.json ]; then
+          npm ci
+          else
+          npm i
+          fi
       - run: npm run test
