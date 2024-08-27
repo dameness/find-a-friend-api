@@ -2,9 +2,12 @@ import { FastifyInstance } from 'fastify';
 import { authenticate } from './authenticate';
 import { refreshToken } from './refresh-token';
 import { registerOrganization } from './register';
+import { getStates } from './get-states';
 
 export const organizationRoutes = async (app: FastifyInstance) => {
   app.post('/organizations', registerOrganization);
+
+  app.get('/states', getStates);
 
   // Authentication
   app.post('/sessions', authenticate);
