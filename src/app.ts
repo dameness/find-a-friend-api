@@ -10,7 +10,6 @@ import fastifyStatic from '@fastify/static';
 import fastifyMultipart from '@fastify/multipart';
 import path, { dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import fs from 'node:fs';
 
 export const app = fastify();
 
@@ -39,24 +38,6 @@ app.register(fastifyStatic, {
   root: path.join(__dirname, 'uploads'),
   prefix: '/uploads/',
 });
-
-app.post('/upload', async (req, res) => {
-  const data = await req.file();
-
-  if (!fs.existsSync(path.join(__dirname, 'uploads'))) {
-    fs.mkdirSync(path.join(__dirname, 'uploads'));
-  }
-
-  const fileName = `${Date.now()}-${data?.filename}`;
-  const filePath = path.join(__dirname, 'uploads', fileName);
-
-  const fileStream = fs.createWriteStream(filePath);
-
-  data?.file.pipe(fileStream);
-
-  res.send({ filePath: `/uploads/${fileName}` });
-});
-
 app.register(organizationRoutes);
 app.register(petRoutes);
 
