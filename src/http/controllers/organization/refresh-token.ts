@@ -14,7 +14,7 @@ export const refreshToken = async (req: FastifyRequest, res: FastifyReply) => {
     .status(200)
     .setCookie('refreshToken', refreshToken, {
       path: '/',
-      secure: true,
+      // secure: true,
       sameSite: true,
       httpOnly: true,
     })

@@ -10,7 +10,9 @@ import fastifyCors from '@fastify/cors';
 export const app = fastify();
 
 app.register(fastifyCors, {
-  origin: true,
+  // Refresh Token Cookie just working on same origin with HTTP (development)
+  // TODO: on production, change cookies config --> secure: true; samesite: 'None';
+  origin: ['http://192.168.1.14:5173', 'http://localhost:5173'],
   credentials: true,
 });
 app.register(fastifyCookie);
