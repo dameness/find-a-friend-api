@@ -1,4 +1,7 @@
-import { OrganizationsRepository } from '@/models/organization-repository';
+import {
+  OrganizationCreateInput,
+  OrganizationsRepository,
+} from '@/models/organization-repository';
 import { State } from '@/use-cases/organization/get-states';
 import { Organization, Prisma } from '@prisma/client';
 import { randomUUID } from 'node:crypto';
@@ -8,13 +11,11 @@ export class InMemoryOrganizationsRepository
 {
   public organizations: Organization[] = [];
 
-  async create(data: Prisma.OrganizationCreateInput) {
+  async create(data: OrganizationCreateInput) {
     const {
       id,
       city,
       email,
-      latitude,
-      longitude,
       name,
       neighborhood,
       password_hash,
@@ -26,8 +27,8 @@ export class InMemoryOrganizationsRepository
 
     const organization: Organization = {
       id: id ?? randomUUID(),
-      latitude: new Prisma.Decimal(latitude.toString()),
-      longitude: new Prisma.Decimal(longitude.toString()),
+      latitude: new Prisma.Decimal(0),
+      longitude: new Prisma.Decimal(0),
       city,
       email,
       name,

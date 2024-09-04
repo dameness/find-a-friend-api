@@ -1,12 +1,36 @@
 import { prisma } from '@/lib/prisma';
-import { OrganizationsRepository } from '@/models/organization-repository';
+import {
+  OrganizationCreateInput,
+  OrganizationsRepository,
+} from '@/models/organization-repository';
 import { State } from '@/use-cases/organization/get-states';
-import { Prisma } from '@prisma/client';
+import { env } from '@/env';
+import locationiq from '@api/locationiq';
 
 export class PrismaOrganizationsRepository implements OrganizationsRepository {
-  async create(data: Prisma.OrganizationCreateInput) {
+  async create(data: OrganizationCreateInput) {
+    const { city, street, state, zip_code } = data;
+
+    locationiq.auth(env.LOCATION_IQ_API_KEY);
+
+    const { data: locations } = await locationiq.searchStructured({
+      city,
+      street,
+      state,
+      postalcode: zip_code,
+      format: 'json',
+      addressdetails: 0,
+      limit: 1,
+    });
+
+    const dataWithLatAndLon = {
+      ...data,
+      latitude: locations[0]?.lat ?? 0,
+      longitude: locations[0]?.lon ?? 0,
+    };
+
     const organization = await prisma.organization.create({
-      data,
+      data: dataWithLatAndLon,
     });
 
     return organization;

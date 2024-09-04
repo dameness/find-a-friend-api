@@ -24,8 +24,6 @@ describe('Register Organization Use Case', () => {
       city: 'city-01',
       neighborhood: 'n-01',
       street: 's-01',
-      latitude: 0,
-      longitude: 0,
     });
 
     expect(organization.id).toBeTypeOf('string');
@@ -42,8 +40,6 @@ describe('Register Organization Use Case', () => {
       city: 'city-01',
       neighborhood: 'n-01',
       street: 's-01',
-      latitude: 0,
-      longitude: 0,
     });
 
     await expect(() =>
@@ -57,8 +53,6 @@ describe('Register Organization Use Case', () => {
         city: 'city-012',
         neighborhood: '2n-01',
         street: 's-012',
-        latitude: 1,
-        longitude: 1,
       })
     ).rejects.toBeInstanceOf(OrganizationAlreadyExistsError);
   });
@@ -76,8 +70,6 @@ describe('Register Organization Use Case', () => {
       city: 'city-01',
       neighborhood: 'n-01',
       street: 's-01',
-      latitude: 0,
-      longitude: 0,
     });
 
     expect(await compare(passwordInput, organization.password_hash)).toBe(true);

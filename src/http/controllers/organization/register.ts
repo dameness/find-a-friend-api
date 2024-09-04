@@ -17,8 +17,6 @@ export const registerOrganization = async (
     city: z.string(),
     neighborhood: z.string(),
     street: z.string(),
-    latitude: z.coerce.number().refine((value) => Math.abs(value) <= 90),
-    longitude: z.coerce.number().refine((value) => Math.abs(value) <= 180),
   });
 
   const data = registerOrganizationBodySchema.parse(req.body);

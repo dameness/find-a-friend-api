@@ -28,8 +28,6 @@ describe('Authenticate Use Case', () => {
       city: 'city-01',
       neighborhood: 'n-01',
       street: 's-01',
-      latitude: 0,
-      longitude: 0,
     });
 
     const { organization } = await sut.execute({
@@ -63,8 +61,6 @@ describe('Authenticate Use Case', () => {
       city: 'city-01',
       neighborhood: 'n-01',
       street: 's-01',
-      latitude: 0,
-      longitude: 0,
     });
 
     await expect(() =>

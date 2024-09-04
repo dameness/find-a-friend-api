@@ -26,8 +26,6 @@ describe('Get States Use Case', () => {
         city: `city-${i}`,
         neighborhood: 'n-01',
         street: 's-01',
-        latitude: new Decimal(0),
-        longitude: new Decimal(0),
       });
     }
 
@@ -43,8 +41,6 @@ describe('Get States Use Case', () => {
         city: `city-${i}`,
         neighborhood: 'n-01',
         street: 's-01',
-        latitude: new Decimal(0),
-        longitude: new Decimal(0),
       });
     }
 

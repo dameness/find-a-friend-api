@@ -28,8 +28,6 @@ describe('Filter Pets Use Case', () => {
       city: 'city-01',
       neighborhood: 'n-01',
       street: 's-01',
-      latitude: new Decimal(0),
-      longitude: new Decimal(0),
     });
 
     await organizationsRepository.create({
@@ -43,8 +41,6 @@ describe('Filter Pets Use Case', () => {
       city: 'city-02',
       neighborhood: 'n-01',
       street: 's-01',
-      latitude: new Decimal(0),
-      longitude: new Decimal(0),
     });
 
     // registering pets in org-01 from city-01
@@ -92,8 +88,6 @@ describe('Filter Pets Use Case', () => {
       city: 'city-01',
       neighborhood: 'n-01',
       street: 's-01',
-      latitude: new Decimal(0),
-      longitude: new Decimal(0),
     });
 
     await petsRepository.create({
@@ -147,8 +141,6 @@ describe('Filter Pets Use Case', () => {
       city: 'city-01',
       neighborhood: 'n-01',
       street: 's-01',
-      latitude: new Decimal(0),
-      longitude: new Decimal(0),
     });
 
     await petsRepository.create({
@@ -202,8 +194,6 @@ describe('Filter Pets Use Case', () => {
       city: 'city-01',
       neighborhood: 'n-01',
       street: 's-01',
-      latitude: new Decimal(0),
-      longitude: new Decimal(0),
     });
 
     await petsRepository.create({
@@ -257,8 +247,6 @@ describe('Filter Pets Use Case', () => {
       city: 'city-01',
       neighborhood: 'n-01',
       street: 's-01',
-      latitude: new Decimal(0),
-      longitude: new Decimal(0),
     });
 
     await petsRepository.create({
@@ -312,8 +300,6 @@ describe('Filter Pets Use Case', () => {
       city: 'city-01',
       neighborhood: 'n-01',
       street: 's-01',
-      latitude: new Decimal(0),
-      longitude: new Decimal(0),
     });
 
     await petsRepository.create({
@@ -367,8 +353,6 @@ describe('Filter Pets Use Case', () => {
       city: 'city-01',
       neighborhood: 'n-01',
       street: 's-01',
-      latitude: new Decimal(0),
-      longitude: new Decimal(0),
     });
 
     await organizationsRepository.create({
@@ -382,8 +366,6 @@ describe('Filter Pets Use Case', () => {
       city: 'city-02',
       neighborhood: 'n-01',
       street: 's-01',
-      latitude: new Decimal(0),
-      longitude: new Decimal(0),
     });
 
     // City 1, Puppies, Low Space Needed

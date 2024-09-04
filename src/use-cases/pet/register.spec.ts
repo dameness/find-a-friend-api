@@ -29,8 +29,6 @@ describe('Register Pet Use Case', () => {
       city: 'city-01',
       neighborhood: 'n-01',
       street: 's-01',
-      latitude: new Decimal(0),
-      longitude: new Decimal(0),
     });
 
     const { pet } = await sut.execute({
@@ -53,8 +51,6 @@ describe('Register Pet Use Case', () => {
       city: 'city-01',
       neighborhood: 'n-01',
       street: 's-01',
-      latitude: new Decimal(0),
-      longitude: new Decimal(0),
     });
 
     await expect(() =>

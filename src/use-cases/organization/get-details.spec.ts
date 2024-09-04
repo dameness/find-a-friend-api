@@ -26,8 +26,6 @@ describe('Get Organization Details Use Case', () => {
       city: 'city-01',
       neighborhood: 'n-01',
       street: 's-01',
-      latitude: new Decimal(0),
-      longitude: new Decimal(0),
     });
 
     const { organization } = await sut.execute({ id });

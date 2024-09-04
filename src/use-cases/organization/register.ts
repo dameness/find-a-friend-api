@@ -13,8 +13,6 @@ interface RegisterOrganizationUseCaseRequest {
   city: string;
   neighborhood: string;
   street: string;
-  latitude: number;
-  longitude: number;
 }
 
 interface RegisterOrganizationUseCaseResponse {

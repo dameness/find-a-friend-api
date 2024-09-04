@@ -29,8 +29,6 @@ describe('Get Pet Details Use Case', () => {
       city: 'city-01',
       neighborhood: 'n-01',
       street: 's-01',
-      latitude: new Decimal(0),
-      longitude: new Decimal(0),
     });
 
     const createdPet = await petsRepository.create({
