@@ -5,23 +5,22 @@ import {
 } from '@/models/organization-repository';
 import { State } from '@/use-cases/organization/get-states';
 import { env } from '@/env';
-import locationiq from '@api/locationiq';
 
 export class PrismaOrganizationsRepository implements OrganizationsRepository {
   async create(data: OrganizationCreateInput) {
     const { city, street, state, zip_code } = data;
 
-    locationiq.auth(env.LOCATION_IQ_API_KEY);
+    const url = new URL(
+      `https://us1.locationiq.com/v1/search/structured?format=json&addressdetails=0&limit=1&normalizeaddress=1&key=${env.LOCATION_IQ_API_KEY}`
+    );
+    url.searchParams.append('city', city);
+    url.searchParams.append('street', street);
+    url.searchParams.append('state', state);
+    url.searchParams.append('postalcode', zip_code);
 
-    const { data: locations } = await locationiq.searchStructured({
-      city,
-      street,
-      state,
-      postalcode: zip_code,
-      format: 'json',
-      addressdetails: 0,
-      limit: 1,
-    });
+    const response = await fetch(url);
+
+    const locations: { lat: string; lon: string }[] = await response.json();
 
     const dataWithLatAndLon = {
       ...data,
