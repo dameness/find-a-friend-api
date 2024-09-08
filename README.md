@@ -2,7 +2,7 @@
 
 This project consists in an API for pet adoption developed using Node.js, TypeScript, PrismaORM and Docker.
 This project CI (Continuous Integration) was made using Github Actions and execute test routines made with Fastify. Unit tests run automatically on each push and e2e tests run in each pull request in this repository.
-Furthermore, a front-end will be developed for this application in the future using React.
+The interface for this application was developed using React and TypeScript, and can be found [here](https://github.com/dameness/find-a-friend-frontend).
 
 ### Functional Requirements
 
