@@ -24,6 +24,8 @@ $ cd find-a-friend-api
 $ yarn
 ```
 
+4. Create .env in project root and add environment variables - [.env.example](https://github.com/dameness/find-a-friend-api/blob/master/.env.example)
+
 4. Run migrations and docker compose:
 
 ```
@@ -34,7 +36,7 @@ $ docker compose up -d
 $ npm run migrate:run
 ```
 
-5. Start server:
+6. Start server:
 
 ```
 $ npm run dev
