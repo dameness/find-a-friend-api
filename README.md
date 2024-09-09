@@ -24,9 +24,17 @@ $ cd find-a-friend-api
 $ yarn
 ```
 
-4. Create .env in project root and add environment variables - [.env.example](https://github.com/dameness/find-a-friend-api/blob/master/.env.example)
+4. Create .env in project root and add environment variables - [.env.example](https://github.com/dameness/find-a-friend-api/blob/master/.env.example).
+   Your location API KEY is used to get organization coordinates based on an address. You can get a key in [LocationIQ Site](https://locationiq.com/).
+  ```
+  NODE_ENV=dev
+  JWT_SECRET=your-secret
+  PORT=3333
+  DATABASE_URL="postgresql://docker:docker@localhost:5430/api-find-a-friend?schema=public"
+  LOCATION_IQ_API_KEY="YOUR_KEY"
+  ```
 
-4. Run migrations and docker compose:
+5. Run migrations and docker compose:
 
 ```
 $ docker compose up -d
