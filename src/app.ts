@@ -48,11 +48,13 @@ app.setErrorHandler((error, _req, res) => {
       .send({ message: 'Validation error.', issues: error.format() });
   }
 
-  if (env.NODE_ENV !== 'production') {
-    console.error(error);
-  } else {
-    // could use an external tool to control error logs in production
-  }
+  // if (env.NODE_ENV !== 'production') {
+  //   console.error(error);
+  // } else {
+  //   // could use an external tool to control error logs in production
+  // }
+
+  console.error(error);
 
   return res.status(500).send({ message: 'Internal server error.' });
 });
