@@ -9,7 +9,7 @@
   "scripts": {
     "dev": "tsx watch src/server.ts",
     "start:dist": "node dist/server.js",
-    "build": "tsup src --format esm --dts",
+    "build": "tsup src --format esm",
     "test": "vitest run --dir src/use-cases",
     "test:watch": "vitest watch --dir src/use-cases",
     "test:create-prisma-environment": "npm link ./prisma/vitest-environment-prisma",
