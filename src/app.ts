@@ -19,7 +19,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 app.register(fastifyCors, {
   // Refresh Token Cookie just working on same origin with HTTP (development)
   // TODO: on production, change cookies config --> secure: true; samesite: 'None';
-  origin: ['https://find-a-friend-chi.vercel.app/'],
+  origin: 'https://find-a-friend-chi.vercel.app/',
   credentials: true,
 });
 app.register(fastifyCookie);
