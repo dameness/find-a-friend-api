@@ -1,8 +1,6 @@
 import { InMemoryOrganizationsRepository } from '@/repos/in-memory/in-memory-organizations-repository';
 import { InMemoryPetsRepository } from '@/repos/in-memory/in-memory-pets-repository';
-import { beforeEach, describe, expect, it } from 'vitest';
 import { RegisterPetUseCase } from './register';
-import { Decimal } from '@prisma/client/runtime/library';
 import { hash } from 'bcryptjs';
 import { ResourceNotFoundError } from '@/errors/resource-not-found-error';
 

@@ -1,8 +1,6 @@
 import { InMemoryPetsRepository } from '@/repos/in-memory/in-memory-pets-repository';
-import { beforeEach, describe, expect, it } from 'vitest';
 import { FilterPetsUseCase } from './filter';
 import { InMemoryOrganizationsRepository } from '@/repos/in-memory/in-memory-organizations-repository';
-import { Decimal } from '@prisma/client/runtime/library';
 import { hash } from 'bcryptjs';
 
 let petsRepository: InMemoryPetsRepository;

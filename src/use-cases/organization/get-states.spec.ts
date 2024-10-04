@@ -1,7 +1,5 @@
 import { InMemoryOrganizationsRepository } from '@/repos/in-memory/in-memory-organizations-repository';
-import { describe, expect, it, beforeEach } from 'vitest';
 import { GetStatesUseCase } from './get-states';
-import { Decimal } from '@prisma/client/runtime/library';
 import { hash } from 'bcryptjs';
 
 let organizationsRepository: InMemoryOrganizationsRepository;

@@ -1,5 +1,4 @@
 import { OrganizationsRepository } from '@/models/organization-repository';
-import { describe, it, beforeEach, expect } from 'vitest';
 import { AuthenticateUseCase } from './authenticate';
 import { InMemoryOrganizationsRepository } from '@/repos/in-memory/in-memory-organizations-repository';
 import { hash } from 'bcryptjs';

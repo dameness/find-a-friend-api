@@ -1,7 +1,5 @@
-import { beforeEach, describe, expect, it } from 'vitest';
 import { GetOrganizationDetailsUseCase } from './get-details';
 import { InMemoryOrganizationsRepository } from '@/repos/in-memory/in-memory-organizations-repository';
-import { Decimal } from '@prisma/client/runtime/library';
 import { hash } from 'bcryptjs';
 import { ResourceNotFoundError } from '@/errors/resource-not-found-error';
 
